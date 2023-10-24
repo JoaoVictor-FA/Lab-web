@@ -11,30 +11,50 @@
 
 .work {
     background-color: #032830;
-    border: #087990 1px solid;
+    /* border: #087990 1px solid; */
     color: #6EDFF6;
+    transition: .3s;
+}
+.work:hover {
+    box-shadow: inset 0 0 0 1.5px #087990;
 }
 
 .family {
     background-color: #031633;
-    border: #084298 1px solid;
+    /* border: #084298 1px solid; */
     color: #6EA8FE;
+    transition: .3s;
+}
+.family:hover {
+    box-shadow: inset 0 0 0 1.5px #084298;
 }
 
 .friend {
     background-color: #051B11;
-    border: #0F5132 1px solid;
+    /* border: #0F5132 1px solid; */
     color: #75B775;
+    transition: .3s;
+}
+.friend:hover {
+    box-shadow: inset 0 0 0 1.5px #177b4d;
 }
 
 .colleague {
     background-color: #332701;
-    border: #8B6A04 1px solid;
+    /* border: #8B6A04 1px solid; */
     color: #EFD560;
+    transition: .3s;
+}
+.colleague:hover {
+    box-shadow: inset 0 0 0 1.5px #8B6A04;
 }
 
 .default {
     background-color: #161719;
-    border: #41464B 1px solid;
+    /* border: #41464B 1px solid; */
     color: white;
+    transition: .3s;
+}
+.default:hover {
+    box-shadow: inset 0 0 0 1.5px #41464B;
 }

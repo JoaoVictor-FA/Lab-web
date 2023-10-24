@@ -9,14 +9,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   background-color: #1D2024;
 }
 .main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   height: 100vh;
   min-width: 550px;
   /* background-color: aqua; */
@@ -45,15 +45,19 @@ body {
   background: #007840;
   box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.25);
   cursor: pointer;
-  text-transform: capitalize;
-
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  transition: .3s;
 
 }
 .buttonAdd:hover {
-  background: #008849;
+  background: #008c4b;
 }
 
 .buttonAdd img {
@@ -66,7 +70,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   margin-top: 20px;
 }
 
@@ -87,6 +91,7 @@ body {
   border-radius: 3px;
   border: #495057 1px solid;
   cursor: pointer;
+  transition: .2s;
 }
 .alphabet img {
   width: 16px;

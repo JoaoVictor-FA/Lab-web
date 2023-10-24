@@ -10,23 +10,28 @@ import Footer from "./components/Footer";
 import List from "./components/ContactList";
 import Style from "./App.module.css";
 
-interface Contact {
+interface IContact {
   id: number;
   name: string;
   phone: string;
-  tag: Tag[];
+  email: string;
+  photo: string;
+  tag: ITag[];
 }
 
-interface Tag {
+interface ITag {
   name: string;
 }
 
 function App() {
   const [alphabet, setAlphabet] = useState<string>(AlphabetAZ);
-  const [contacts, setContacts] = useState<Contact[]>([{
+  const [contacts, setContacts] = useState<IContact[]>([
+    {
     id: 1,
     name: "Anika Calzoni",
     phone: "(11) 98765-4321",
+    email: "anika@me.com",
+    photo: "https://i.imgur.com/SMZTiqL.png",
     tag: [{
             name: "Work",
           },],
@@ -34,13 +39,17 @@ function App() {
     {
       id: 2,
       name: "James Carder",
-      phone: "(11) 98765-4321",
+      phone: "(11) 98765-4322",
+      email: "james@me.com",
+      photo: "https://i.imgur.com/SMZTiqL.png",
       tag: [],
     },
     {
       id: 3,
       name: "Desirae Baptista",
-      phone: "(11) 98765-4321",
+      phone: "(11) 98765-4323",
+      email: "desirae@me.com",
+      photo: "https://i.imgur.com/SMZTiqL.png",
       tag: [{
         name: "Friend",
       },
@@ -51,7 +60,9 @@ function App() {
     {
       id: 4,
       name: "Emerson Siphron",
-      phone: "(11) 98765-4321",
+      phone: "(11) 98765-4324",
+      email: "emerson@me.com",
+      photo: "https://i.imgur.com/SMZTiqL.png",
       tag: [{
         name: "Family",
       }],
