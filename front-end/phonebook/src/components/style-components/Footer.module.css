@@ -1,0 +1,13 @@
+.footer {
+    padding-block: 30px;
+    color: aliceblue;
+    font-size: 12px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}

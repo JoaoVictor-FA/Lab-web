@@ -5,12 +5,13 @@
     justify-content: space-between;
     align-items: center;
     padding-inline: 20px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 figure {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .perfil {
     display: flex;
@@ -23,6 +24,7 @@ figure {
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
+    cursor: pointer;
 }
 .number {
     display: flex;
@@ -39,6 +41,7 @@ figure {
 }
 .number i {
     opacity: .4;
+    cursor: pointer;
 }
 
 .order_even {

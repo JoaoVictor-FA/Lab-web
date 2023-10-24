@@ -6,6 +6,7 @@ import AlphabetAZ from "./assets/imagens/sort-alpha-down.svg";
 import AlphabetZA from "./assets/imagens/sort-alpha-up.svg";
 import DoubleArrow from "./assets/imagens/chevron-double-right.svg";
 import Search from "./components/Search";
+import Footer from "./components/Footer";
 import List from "./components/ContactList";
 import Style from "./App.module.css";
 
@@ -79,7 +80,9 @@ function App() {
         </>
         
       </section>
-      <footer></footer>
+      <>
+        <Footer/>
+      </>
     </main>
   );
 }

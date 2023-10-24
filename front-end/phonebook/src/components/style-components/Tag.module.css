@@ -6,6 +6,7 @@
     font-weight: 700;
     border-radius: 999px;
     text-transform: capitalize;
+    cursor: pointer;
 }
 
 .work {
