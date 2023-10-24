@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Monda:wght@400;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  background-color: #1D2024;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  height: 100vh;
+  min-width: 550px;
+  /* background-color: aqua; */
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: aqua; */
+  padding-block: 40px;
+}
+
+.header h1 {
+  color: aliceblue;
+  font-family: 'Monda', sans-serif;
+}
+
+.buttonAdd {
+  color: aliceblue;
+  width: 144px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background: #007840;
+  box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.sectionList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  margin-top: 20px;
+}
+
+.path {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: aliceblue;
+  padding-bottom: 10px;
+  border-bottom: rgba(255, 255, 255, 0.15) 2px solid;
+}

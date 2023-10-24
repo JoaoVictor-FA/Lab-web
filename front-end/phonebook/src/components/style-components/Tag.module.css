@@ -1,0 +1,39 @@
+.tag {
+    padding-inline: 9px;
+    padding-block: 3px;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 700;
+    border-radius: 999px;
+    text-transform: capitalize;
+}
+
+.work {
+    background-color: #032830;
+    border: #087990 1px solid;
+    color: #6EDFF6;
+}
+
+.family {
+    background-color: #031633;
+    border: #084298 1px solid;
+    color: #6EA8FE;
+}
+
+.friend {
+    background-color: #051B11;
+    border: #0F5132 1px solid;
+    color: #75B775;
+}
+
+.colleague {
+    background-color: #332701;
+    border: #8B6A04 1px solid;
+    color: #EFD560;
+}
+
+.default {
+    background-color: #161719;
+    border: #41464B 1px solid;
+    color: white;
+}
