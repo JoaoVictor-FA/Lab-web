@@ -24,7 +24,7 @@ interface ITag {
 }
 
 function App() {
-  const [alphabet, setAlphabet] = useState<string>(AlphabetAZ);
+  const [alphabet, setAlphabet] = useState<boolean>(true);
   const [contacts, setContacts] = useState<IContact[]>([
     {
     id: 1,
@@ -69,6 +69,10 @@ function App() {
     },
   ]);
 
+  function changeAlphabet() {
+    setAlphabet(!alphabet);
+  }
+
   return (
     <main className={Style.main}>
       <header className={Style.header}>
@@ -83,8 +87,8 @@ function App() {
       </>
       <section className={Style.sectionList}>
         <div className={Style.path}>
-          <p><i className={Style.double_arrow}><img src={DoubleArrow} alt="" /></i>Lista de contatos / All</p>
-          <i className={Style.alphabet}><img src={AlphabetAZ} alt="" /></i>
+          <p><i className={Style.double_arrow}><img src={DoubleArrow} alt="" /></i><a href="./">Lista de contatos</a> / All</p>
+          <i onClick={changeAlphabet} className={Style.alphabet}><img src={alphabet ? AlphabetAZ : AlphabetZA} alt="" /></i>
         </div>
         <>
           <List contacts={contacts} />

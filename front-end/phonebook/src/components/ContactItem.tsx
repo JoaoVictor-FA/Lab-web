@@ -3,7 +3,8 @@ import Copy from "../assets/imagens/copy.svg";
 import Edit from "../assets/imagens/edit.svg";
 import Trash from "../assets/imagens/trash.svg";
 import Tag from "./Tag";
-import { useState } from "react";
+import { useContext } from "react";
+import { GlobalContext } from "../context/GlobalContext";
 
 interface IContact {
     id: number;
@@ -16,10 +17,8 @@ interface IContact {
 interface ITag {
     name: string;
 }
-function ContactItem( props : {order: number, contact: IContact, show: boolean, showContact: (order : number) => void} ) {
-    const hendlerShowContact = () => {
-        props.showContact(props.order);
-    }
+function ContactItem( props : {order: number, contact: IContact, show: boolean} ) {
+    const {showOrder} = useContext(GlobalContext);
     if(props.show) {
         return (
             <>
@@ -27,7 +26,6 @@ function ContactItem( props : {order: number, contact: IContact, show: boolean, 
                     <div className={Style.perfil}>
                         <figure style={{backgroundImage: `url(${props.contact.photo})`,}} className={Style.photoShowDetails}/>
                         <div className={Style.name_tagShowDetails}>
-                            
                             <div>
                                 <p className={Style.name}>{props.contact.name}</p>
                                 <div className={Style.tags}>
@@ -36,18 +34,15 @@ function ContactItem( props : {order: number, contact: IContact, show: boolean, 
                                     ))}
                                 </div>
                             </div>
-
                             <span>
                                 <p>Phone:</p>
                                 <p>{props.contact.phone}<i onClick={() => navigator.clipboard.writeText(props.contact.phone)}><img src={Copy} alt="" /></i></p>
                                 
                             </span>
-
                             <span>
                                 <p>E-mail:</p>
                                 <p>{props.contact.email}<i onClick={() => navigator.clipboard.writeText(props.contact.email)}><img src={Copy} alt="" /></i></p>
                             </span>
-
                         </div>
                     </div>
                     <div className={Style.iconsShowDetails}>
@@ -63,11 +58,11 @@ function ContactItem( props : {order: number, contact: IContact, show: boolean, 
             <>
                 <li className={`${Style.contact} ${props.order%2 === 0 ? Style.order_even : Style.order_odd}`}>
                     <div className={Style.perfil}>
-                        <figure className={Style.photo} onClick={() => hendlerShowContact()}>
+                        <figure className={Style.photo} onClick={() => showOrder(props.order)}>
                             <img src={props.contact.photo} alt="" />
                         </figure>
                         <div className={Style.name_tag}>
-                            <p onClick={() => hendlerShowContact()}>{props.contact.name}</p>
+                            <p onClick={() => showOrder(props.order)}>{props.contact.name}</p>
                             <div className={Style.tags}>
                                 {props.contact.tag.map((tag, index) => (
                                     <Tag key={index} name={tag.name} />
