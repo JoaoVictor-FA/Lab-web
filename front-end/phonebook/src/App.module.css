@@ -45,7 +45,22 @@ body {
   background: #007840;
   box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.25);
   cursor: pointer;
+  text-transform: capitalize;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
 }
+.buttonAdd:hover {
+  background: #008849;
+}
+
+.buttonAdd img {
+  width: 16px;
+  height: 16px;
+}
+
 .sectionList {
   width: 100%;
   display: flex;
@@ -63,4 +78,28 @@ body {
   color: aliceblue;
   padding-bottom: 10px;
   border-bottom: rgba(255, 255, 255, 0.15) 2px solid;
+}
+.alphabet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  border-radius: 3px;
+  border: #495057 1px solid;
+  cursor: pointer;
+}
+.alphabet img {
+  width: 16px;
+  height: 16px;
+}
+.alphabet:hover {
+  background-color: #30363b;
+}
+
+.double_arrow {
+  padding: 0px 7px 0px 3px;
+}
+.double_arrow img {
+  width: 12px;
+  height: 12px;
 }

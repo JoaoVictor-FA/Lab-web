@@ -5,6 +5,7 @@
     justify-content: space-between;
     align-items: center;
     padding-inline: 20px;
+    cursor: pointer;
 }
 
 figure {
@@ -23,6 +24,12 @@ figure {
     font-style: normal;
     font-weight: 600;
 }
+.number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
 .number p {
     color: #FFF;
     font-size: 16px;
@@ -30,6 +37,10 @@ figure {
     font-weight: 400;
     line-height: normal;
 }
+.number i {
+    opacity: .4;
+}
+
 .order_even {
     background-color: #2B3035;
 }

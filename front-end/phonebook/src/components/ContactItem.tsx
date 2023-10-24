@@ -1,6 +1,6 @@
 import Style from "./style-components/ContactItem.module.css";
 import defaultImage from "../assets/imagens/default.png";
-
+import CopyNumber from "../assets/imagens/copy.svg";
 import Tag from "./Tag";
 
 interface Contact {
@@ -31,7 +31,7 @@ function ContactItem( props : {order: number, contact: Contact} ) {
                 </div>
                 <div className={Style.number}>
                     <p>{props.contact.phone}</p>
-                    <i></i>
+                    <i><img src={CopyNumber} alt="" /></i>
                 </div>
             </li>
         </>
