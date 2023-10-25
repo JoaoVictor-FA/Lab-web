@@ -77,7 +77,7 @@ function App() {
     <main className={Style.main}>
       <header className={Style.header}>
         <h1 className={Style.title}>Phonebook</h1>
-        <button type="button" className={Style.buttonAdd}>
+        <button type="button" className={`${Style.buttonAdd}`}>
           <i><img src={PhoneAdd} alt="" /></i>
           Add contact
         </button>

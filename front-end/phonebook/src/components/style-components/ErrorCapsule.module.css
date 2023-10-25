@@ -1,0 +1,27 @@
+.errorCapsule{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: aliceblue;
+}
+
+.errorCapsule h1{
+    font-size: 36px;
+    margin-bottom: -30px;
+}
+.errorCapsule h2{
+    font-size: 150px;
+}
+.errorCapsule p{
+    margin-top: -30px;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 17px;
+}
+
+.errorCapsule div {
+    font-size: 32px;
+}
