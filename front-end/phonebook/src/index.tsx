@@ -15,12 +15,12 @@ const router = createBrowserRouter([
     element: <App/>,
     errorElement: <ErrorPage />,
   },
+  // {
+  //   path: "/contacts/:contactId/edit",
+  //   element: <Edit/>
+  // },
   {
-    path: "/edit",
-    element: <Edit/>
-  },
-  {
-    path: "/register",
+    path: "/contacts/register",
     element: <Register/>
   }
 ]);

@@ -22,48 +22,6 @@ body {
   /* background-color: aqua; */
 }
 
-.header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* background-color: aqua; */
-  padding-block: 40px;
-}
-
-.header h1 {
-  color: aliceblue;
-  font-family: 'Monda', sans-serif;
-}
-
-.buttonAdd {
-  color: aliceblue;
-  width: 144px;
-  height: 40px;
-  border-radius: 5px;
-  border: none;
-  background: #007840;
-  box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  transition: .3s;
-
-}
-.buttonAdd:hover {
-  background: #008c4b;
-}
-
-.buttonAdd img {
-  width: 16px;
-  height: 16px;
-}
 
 .sectionList {
   width: 100%;

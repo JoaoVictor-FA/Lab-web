@@ -5,6 +5,7 @@ import Trash from "../assets/imagens/trash.svg";
 import Tag from "./Tag";
 import { useContext } from "react";
 import { GlobalContext } from "../context/GlobalContext";
+import { Link } from "react-router-dom";
 
 interface IContact {
     id: number;
@@ -46,7 +47,9 @@ function ContactItem( props : {order: number, contact: IContact, show: boolean} 
                         </div>
                     </div>
                     <div className={Style.iconsShowDetails}>
-                        <i><img src={Edit} alt="" /></i>
+                        <Link to={`/edit/${props.contact.id}`}>
+                            <i><img src={Edit} alt="" /></i>
+                        </Link>
                         <i><img src={Trash} alt="" /></i>
                     </div>
 

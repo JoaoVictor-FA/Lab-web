@@ -50,11 +50,12 @@
 }
 
 .default {
-    background-color: #161719;
+    background-color: #262729;
     /* border: #41464B 1px solid; */
-    color: white;
+    color: #575b5e;
     transition: .3s;
 }
 .default:hover {
+    color: #8d9195;
     box-shadow: inset 0 0 0 1.5px #41464B;
 }

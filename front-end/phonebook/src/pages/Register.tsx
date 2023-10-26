@@ -1,10 +1,9 @@
-
-
+import RegisterComponent from "../components/RegisterComponent";
 function Register(){
     return(
-        <div>
-            Register
-        </div>
+        <>
+            <RegisterComponent/>
+        </>
     )
 }
 

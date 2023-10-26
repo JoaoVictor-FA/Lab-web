@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
-
-import PhoneAdd from "./assets/imagens/telephone-plus-fill.svg";
+import { useContext } from "react";
+import { GlobalContext } from "./context/GlobalContext";
 import AlphabetAZ from "./assets/imagens/sort-alpha-down.svg";
 import AlphabetZA from "./assets/imagens/sort-alpha-up.svg";
 import DoubleArrow from "./assets/imagens/chevron-double-right.svg";
@@ -9,6 +9,7 @@ import Search from "./components/Search";
 import Footer from "./components/Footer";
 import List from "./components/ContactList";
 import Style from "./App.module.css";
+import Header from "./components/Header";
 
 interface IContact {
   id: number;
@@ -24,6 +25,8 @@ interface ITag {
 }
 
 function App() {
+
+  const {searchInput} = useContext(GlobalContext);
   const [alphabet, setAlphabet] = useState<boolean>(true);
   const [contacts, setContacts] = useState<IContact[]>([
     {
@@ -69,19 +72,27 @@ function App() {
     },
   ]);
 
+  const [data, setData] = useState<IContact[]>([]);
+  // 
+
+  function searchList(searchInput: string) {
+    const filtered = data.filter(contact => contact.name.toLowerCase().includes(searchInput.toLowerCase()));
+    return filtered;
+  }
+
+  useEffect(() => {
+    setData(contacts);
+  }, [searchInput, alphabet]);
+
   function changeAlphabet() {
     setAlphabet(!alphabet);
   }
 
   return (
     <main className={Style.main}>
-      <header className={Style.header}>
-        <h1 className={Style.title}>Phonebook</h1>
-        <button type="button" className={`${Style.buttonAdd}`}>
-          <i><img src={PhoneAdd} alt="" /></i>
-          Add contact
-        </button>
-      </header>
+      <>
+        <Header />
+      </>
       <>
         <Search />
       </>
@@ -91,7 +102,7 @@ function App() {
           <i onClick={changeAlphabet} className={Style.alphabet}><img src={alphabet ? AlphabetAZ : AlphabetZA} alt="" /></i>
         </div>
         <>
-          <List contacts={contacts} />
+          <List contacts={searchInput === "" ? data : searchList(searchInput)} />
         </>
         
       </section>
