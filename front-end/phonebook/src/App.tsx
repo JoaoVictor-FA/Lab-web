@@ -25,9 +25,10 @@ interface ITag {
 }
 
 function App() {
-
-  const {searchInput} = useContext(GlobalContext);
+  
+  const { setOrder ,searchInput } = useContext(GlobalContext);
   const [alphabet, setAlphabet] = useState<boolean>(true);
+  const [data, setData] = useState<IContact[]>([]);
   const [contacts, setContacts] = useState<IContact[]>([
     {
     id: 1,
@@ -72,7 +73,6 @@ function App() {
     },
   ]);
 
-  const [data, setData] = useState<IContact[]>([]);
   // 
 
   function searchList(searchInput: string) {
@@ -81,8 +81,9 @@ function App() {
   }
 
   useEffect(() => {
+    setOrder(null);
     setData(contacts);
-  }, [searchInput, alphabet]);
+  }, [searchInput, alphabet, setOrder, contacts]);
 
   function changeAlphabet() {
     setAlphabet(!alphabet);

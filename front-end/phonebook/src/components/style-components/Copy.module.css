@@ -1,0 +1,10 @@
+.copy {
+    opacity: .4;
+    cursor: pointer;
+    transition: .2s;
+}
+.copy:hover {
+    opacity: .6;
+    transition: .2s;
+}
+

@@ -1,8 +1,8 @@
 import Style from "./style-components/ContactItem.module.css";
-import Copy from "../assets/imagens/copy.svg";
 import Edit from "../assets/imagens/edit.svg";
 import Trash from "../assets/imagens/trash.svg";
 import Tag from "./Tag";
+import Copy from "./Copy";
 import { useContext } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 import { Link } from "react-router-dom";
@@ -37,19 +37,21 @@ function ContactItem( props : {order: number, contact: IContact, show: boolean} 
                             </div>
                             <span>
                                 <p>Phone:</p>
-                                <p>{props.contact.phone}<i onClick={() => navigator.clipboard.writeText(props.contact.phone)}><img src={Copy} alt="" /></i></p>
-                                
+                                <p>{props.contact.phone}<Copy data={props.contact.phone} /></p>                                
                             </span>
                             <span>
                                 <p>E-mail:</p>
-                                <p>{props.contact.email}<i onClick={() => navigator.clipboard.writeText(props.contact.email)}><img src={Copy} alt="" /></i></p>
+                                <p>{props.contact.email}<Copy data={props.contact.email} /></p>
+                                
                             </span>
                         </div>
                     </div>
                     <div className={Style.iconsShowDetails}>
-                        <Link to={`/edit/${props.contact.id}`}>
-                            <i><img src={Edit} alt="" /></i>
-                        </Link>
+                        <i>
+                            <Link to={`/contacts/edit/${props.contact.id}`}>
+                                <img src={Edit} alt="" />
+                            </Link>
+                        </i>
                         <i><img src={Trash} alt="" /></i>
                     </div>
 
@@ -75,7 +77,7 @@ function ContactItem( props : {order: number, contact: IContact, show: boolean} 
                     </div>
                     <div className={Style.number}>
                         <p>{props.contact.phone}</p>
-                        <i onClick={() => navigator.clipboard.writeText(props.contact.phone)}><img src={Copy} alt="" /></i>
+                        <Copy data={props.contact.phone} />
                     </div>
                 </li>
             </>

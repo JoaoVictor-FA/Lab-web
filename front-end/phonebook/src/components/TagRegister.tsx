@@ -21,6 +21,9 @@ function TagRegister(props : ITag){
             case "Colleague":
                 setStyleButton("colleague");
                 break;
+            case "Emergency":
+                setStyleButton("emergency");
+                break;
             default:
                 setStyleButton("default");
                 break;

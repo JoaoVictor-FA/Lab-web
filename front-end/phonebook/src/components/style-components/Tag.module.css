@@ -49,6 +49,17 @@
     box-shadow: inset 0 0 0 1.5px #8B6A04;
 }
 
+.emergency {
+    background-color: #2C0B0E;
+    /* border: #8B6A04 1px solid; */
+    color: #D3807B;
+    transition: .3s;
+}
+
+.emergency:hover {
+    box-shadow: inset 0 0 0 1.5px #842029;
+}
+
 .default {
     background-color: #262729;
     /* border: #41464B 1px solid; */

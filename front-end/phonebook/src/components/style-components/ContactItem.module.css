@@ -141,10 +141,11 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    padding-block: 40px;
+    padding-block: 35px;
     gap: 12px;
 }
 .iconsShowDetails i {
+    height: 16px;
     opacity: .6;
     cursor: pointer;
     transition: .2s;

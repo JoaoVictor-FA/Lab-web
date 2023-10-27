@@ -5,6 +5,7 @@ export const GlobalContext = createContext({} as Props);
 type Props = {
     order: number | null,
     showOrder: (order: number | null) => void
+    setOrder: (order: number | null) => void
     searchInput: string,
     setSearchInput: (input: string) => void
 }
@@ -16,7 +17,7 @@ export const GlobalProvider = ({ children } : {children: React.ReactNode}) => {
         order || order === 0 ? setOrder(order) : setOrder(null);
     }
     return (
-        <GlobalContext.Provider value={{order, showOrder, searchInput, setSearchInput}}>
+        <GlobalContext.Provider value={{order, showOrder, setOrder, searchInput, setSearchInput}}>
             {children}
         </GlobalContext.Provider>
     )
