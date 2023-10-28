@@ -23,17 +23,26 @@
     align-items: center;
     width: 50px;
 }
-.photo img{
+.photo {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    transition: ease-out .2s;
     cursor: pointer;
+    border: 2px solid rgba(0, 0, 0, 0.05);
 }
 
 .photoShowDetails {
     width: 140px;
     height: 140px;
-    border-radius: 5px;
+    border-radius: 15px;
+    background-repeat: no-repeat;
     cursor: pointer;
     transition: ease-out .2s;
-    background-size: cover;
+    background-size:cover;
+    border: 2px solid rgba(0, 0, 0, 0.05);
 }
 
 .perfil {

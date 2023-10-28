@@ -5,11 +5,10 @@ import { GlobalContext } from "./context/GlobalContext";
 import AlphabetAZ from "./assets/imagens/sort-alpha-down.svg";
 import AlphabetZA from "./assets/imagens/sort-alpha-up.svg";
 import DoubleArrow from "./assets/imagens/chevron-double-right.svg";
-import Search from "./components/Search";
-import Footer from "./components/Footer";
 import List from "./components/ContactList";
 import Style from "./App.module.css";
-import Header from "./components/Header";
+import Main from "./components/Main";
+
 
 interface IContact {
   id: number;
@@ -53,7 +52,7 @@ function App() {
       name: "Desirae Baptista",
       phone: "(11) 98765-4323",
       email: "desirae@me.com",
-      photo: "https://i.imgur.com/SMZTiqL.png",
+      photo: "https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?auto=format&fit=crop&q=80&w=1480&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       tag: [{
         name: "Friend",
       },
@@ -90,13 +89,7 @@ function App() {
   }
 
   return (
-    <main className={Style.main}>
-      <>
-        <Header />
-      </>
-      <>
-        <Search />
-      </>
+    <Main search={true}>
       <section className={Style.sectionList}>
         <div className={Style.path}>
           <p><i className={Style.double_arrow}><img src={DoubleArrow} alt="" /></i><a href="./">Lista de contatos</a> / All</p>
@@ -107,10 +100,7 @@ function App() {
         </>
         
       </section>
-      <>
-        <Footer/>
-      </>
-    </main>
+    </Main>
   );
 }
 

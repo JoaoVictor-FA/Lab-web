@@ -63,9 +63,7 @@ function ContactItem( props : {order: number, contact: IContact, show: boolean} 
             <>
                 <li className={` ${Style.contact} ${props.order%2 === 0 ? Style.order_even : Style.order_odd}`}>
                     <div className={Style.perfil}>
-                        <figure className={Style.photo} onClick={() => showOrder(props.order)}>
-                            <img src={props.contact.photo} alt="" />
-                        </figure>
+                        <figure style={{backgroundImage: `url(${props.contact.photo})`,}} className={Style.photo} onClick={() => showOrder(props.order)}/>
                         <div className={Style.name_tag}>
                             <p onClick={() => showOrder(props.order)}>{props.contact.name}</p>
                             <div className={Style.tags}>
