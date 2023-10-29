@@ -8,6 +8,7 @@ import DoubleArrow from "./assets/imagens/chevron-double-right.svg";
 import List from "./components/ContactList";
 import Style from "./App.module.css";
 import Main from "./components/Main";
+import Skeletons from "./components/Skeletons";
 
 
 interface IContact {
@@ -26,6 +27,7 @@ interface ITag {
 function App() {
   
   const { setOrder ,searchInput } = useContext(GlobalContext);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [alphabet, setAlphabet] = useState<boolean>(true);
   const [data, setData] = useState<IContact[]>([]);
   const [contacts, setContacts] = useState<IContact[]>([
@@ -82,6 +84,13 @@ function App() {
   useEffect(() => {
     setOrder(null);
     setData(contacts);
+    const loading = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => {
+      clearTimeout(loading);
+    }
   }, [searchInput, alphabet, setOrder, contacts]);
 
   function changeAlphabet() {
@@ -96,7 +105,11 @@ function App() {
           <i onClick={changeAlphabet} className={Style.alphabet}><img src={alphabet ? AlphabetAZ : AlphabetZA} alt="" /></i>
         </div>
         <>
-          <List contacts={searchInput === "" ? data : searchList(searchInput)} />
+          {isLoading ? 
+            <Skeletons/> 
+            : 
+            <List contacts={searchInput === "" ? data : searchList(searchInput)} />
+          }
         </>
         
       </section>

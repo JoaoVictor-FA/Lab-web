@@ -79,6 +79,10 @@
     padding: 8px;
     outline: none;
 }
+.error  {
+    background-color: #292121;
+    border: #df1d16 2px solid;
+}
 
 .form label:last-child {
     margin-top: 10px;

@@ -1,0 +1,24 @@
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading {
+    width: 50px;
+    height: 50px;
+    background-color: aliceblue;
+    border-radius: 50%;
+    animation: loading .65s infinite;
+}
+
+@keyframes loading {
+
+    0% {
+        scale: .3;
+        opacity: .2;
+    }
+    100% {
+        scale: 1;
+    }
+}

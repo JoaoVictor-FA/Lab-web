@@ -5,7 +5,7 @@ interface ITag {
     name: string;
     checked: boolean;
 }
-function TagRegister(props : ITag){
+function TagComponent(props : ITag){
     const [styleButton, setStyleButton] = useState<string>("default");
     const changeStyleButton = useCallback(() => {
         switch (props.name) {
@@ -40,4 +40,4 @@ function TagRegister(props : ITag){
     )
 }
 
-export default TagRegister
+export default TagComponent
