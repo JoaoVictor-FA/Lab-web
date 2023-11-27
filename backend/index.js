@@ -17,7 +17,8 @@ app.post("/", function(req, res){
         nome: req.body.nome,
         telefone: req.body.telefone,
         email: req.body.email,
-        foto: req.body.foto
+        foto: req.body.foto,
+        tags: req.body.tags
     })
     .then(()=>{res.send("Contato criado")})
     .catch((err)=>{res.send("Erro: " + err)})
@@ -39,7 +40,8 @@ app.delete("/", async (req, res) => {
         nome: req.body.nome,
         telefone: req.body.telefone,
         email: req.body.email,
-        foto: req.body.foto
+        foto: req.body.foto,
+        tags: req.body.tags
       },{
         where: {
           id: req.body.id

@@ -17,10 +17,15 @@ const Contato = db.sequelize.define(
        foto:{
         type: db.Sequelize.STRING
        },
-    //    tags: {
-    //     type: Sequelize.ARRAY(Sequelize.TEXT),
-    //     defaultValue: [],
-    //    }   
+       tags: {
+        type: db.Sequelize.STRING,
+        get() {
+            return this.getDataValue('tags').split(';')
+        },
+        set(val) {
+           this.setDataValue('tags',val.join(';'))
+        },
+       }   
     }
 );
 
