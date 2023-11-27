@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import { GlobalProvider } from "./context/GlobalContext";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -36,4 +35,3 @@ root.render(
   </React.StrictMode>
 );
 
-reportWebVitals();
