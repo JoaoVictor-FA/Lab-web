@@ -154,6 +154,7 @@ function EditComponent() {
     tags.forEach(e => {e.checked && sendTags.push(e.name)})
 
     axios.put("", {
+      id: id,
       name: name,
       phone: phone,
       email: email,
