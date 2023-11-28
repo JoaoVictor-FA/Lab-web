@@ -115,7 +115,7 @@ function App() {
       <section className={Style.sectionList}>
         <div className={Style.path}>
           <p><i className={Style.double_arrow}><img src={DoubleArrow} alt="" /></i><a href="./">Lista de contatos</a> / All</p>
-          <i onClick={changeAlphabet} className={Style.alphabet}><img src={alphabet ? AlphabetAZ : AlphabetZA} alt="" /></i>
+          {/* <i onClick={changeAlphabet} className={Style.alphabet}><img src={alphabet ? AlphabetAZ : AlphabetZA} alt="" /></i> */}
         </div>
         <>
           {isLoading ? 

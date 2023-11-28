@@ -3,7 +3,7 @@ import DoubleArrow from "../assets/imagens/chevron-double-right.svg";
 import Illustration from "../assets/imagens/illustration.png";
 import { SyntheticEvent, useState } from "react";
 import TagComponent from "./TagComponent";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Main from "./Main";
 import axios from "../axios";
 interface ITag {
@@ -38,6 +38,7 @@ function RegisterComponent() {
       checked: false,
     },
   ]);
+  const navigate = useNavigate()
 
   function changeNewRegisterTags(index: number) {
     const newTags = [...tags];
@@ -72,7 +73,7 @@ function RegisterComponent() {
       tags: sendTags,
     })
 
-    console.log("Submit");
+    navigate("../../")
   }
 
   return (

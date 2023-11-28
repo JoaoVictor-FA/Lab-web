@@ -1,5 +1,5 @@
 import { SyntheticEvent, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import DoubleArrow from "../assets/imagens/chevron-double-right.svg";
 import Trash from "../assets/imagens/trash.svg";
 import Style from "./style-components/EditComponent.module.css";
@@ -114,6 +114,7 @@ function EditComponent() {
       ],
     },
   ]);
+  const navigate = useNavigate()
 
   function changeEditTags(index: number) {
     const newTags = [...tags];
@@ -161,6 +162,8 @@ function EditComponent() {
       photo: photo,
       tags: sendTags,
     })
+    
+    navigate("../../")
   }
 
   useEffect(() => {
@@ -284,7 +287,7 @@ function EditComponent() {
                       id="cancel"
                       className={`${Style.button} ${Style.cancel}`}
                     >
-                      Cancel
+                      Back
                     </button>
                   </Link>
                   <button

@@ -30,6 +30,7 @@ function ContactItem( props : {order: number, contact: IContact, show: boolean} 
                 id: id,
             }
         })
+        window.location.reload();
     }
 
     if(props.show) {
