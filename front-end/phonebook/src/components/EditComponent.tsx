@@ -28,7 +28,7 @@ interface IContactData {
   phone: string;
   email: string;
   photo: string;
-  tag: ITagData[];
+  tags: ITagData[];
 }
 interface ITagData {
   name: string;
@@ -71,7 +71,7 @@ function EditComponent() {
       phone: "(11) 98765-4321",
       email: "anika@me.com",
       photo: "https://i.imgur.com/SMZTiqL.png",
-      tag: [
+      tags: [
         {
           name: "Work",
         },
@@ -83,7 +83,7 @@ function EditComponent() {
       phone: "(11) 98765-4322",
       email: "james@me.com",
       photo: "https://i.imgur.com/SMZTiqL.png",
-      tag: [],
+      tags: [],
     },
     {
       id: 3,
@@ -92,7 +92,7 @@ function EditComponent() {
       email: "desirae@me.com",
       photo:
         "https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?auto=format&fit=crop&q=80&w=1480&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      tag: [
+      tags: [
         {
           name: "Friend",
         },
@@ -107,7 +107,7 @@ function EditComponent() {
       phone: "(11) 98765-4324",
       email: "emerson@me.com",
       photo: "https://i.imgur.com/SMZTiqL.png",
-      tag: [
+      tags: [
         {
           name: "Family",
         },
@@ -123,7 +123,7 @@ function EditComponent() {
 
   function checkTags(contact: IContactData) {
     const newTags = [...tags];
-    contact.tag.forEach((tag) => {
+    contact.tags.forEach((tag) => {
       newTags.map((newTag) => {
         if (newTag.name === tag.name) {
           newTag.checked = true;
@@ -160,9 +160,19 @@ function EditComponent() {
       photo: photo,
       tags: sendTags,
     })
-
-    console.log("Submit");
   }
+
+  useEffect(() => {
+    axios.get("").then((response) => {
+      let newTags: any[] = []
+      response.data.forEach((e:any)=>{
+        e.tags.forEach((l:any)=>newTags.push({name:l}))
+        e.tags = newTags
+        newTags = []
+      })
+      setContacts(response.data);
+    });
+  }, []);
 
   useEffect(() => {
     const contact = contacts.find((contact) => contact.id === Number(id));
@@ -180,7 +190,7 @@ function EditComponent() {
     return () => {
       clearTimeout(loading);
     }
-  }, []);
+  }, [contacts]);
 
 
   if(isLoading) {

@@ -14,6 +14,15 @@ app.get("/", async (req, res) => {
     res.send(contatos)
 })
 
+app.get("/:id", async (req, res) => {
+  const contatos = await Contato.findOne({
+    where: {
+       id: req.params.id
+    }
+ })
+  res.send(contatos)
+})
+
 app.post("/", function(req, res){
     Contato.create({
         name: req.body.name,
