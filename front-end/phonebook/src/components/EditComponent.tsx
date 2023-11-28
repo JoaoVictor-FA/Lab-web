@@ -6,6 +6,7 @@ import Style from "./style-components/EditComponent.module.css";
 import Main from "./Main";
 import TagComponent from "./TagComponent";
 import Loading from "./Loading";
+import axios from "../axios";
 
 interface IContact {
   id: number;
@@ -149,11 +150,18 @@ function EditComponent() {
         break;
     }
 
-    console.log("Submit");
-  }
+    let sendTags : any[] = []
+    tags.forEach(e => {e.checked && sendTags.push(e.name)})
 
-  function deleteContact() {
-    // função para deletar
+    axios.put("", {
+      name: name,
+      phone: phone,
+      email: email,
+      photo: photo,
+      tags: sendTags,
+    })
+
+    console.log("Submit");
   }
 
   useEffect(() => {
@@ -277,11 +285,6 @@ function EditComponent() {
                   </button>
                 </label>
               </form>
-              <div>
-                <i className={Style.delete} onClick={deleteContact}>
-                  <img src={Trash} alt="" />
-                </i>
-              </div>
             </section>
           </>
         </Main>

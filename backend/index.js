@@ -16,10 +16,10 @@ app.get("/", async (req, res) => {
 
 app.post("/", function(req, res){
     Contato.create({
-        nome: req.body.nome,
-        telefone: req.body.telefone,
+        name: req.body.name,
+        phone: req.body.phone,
         email: req.body.email,
-        foto: req.body.foto,
+        photo: req.body.photo,
         tags: req.body.tags
     })
     .then(()=>{res.send("Contato criado")})
@@ -39,10 +39,10 @@ app.delete("/", async (req, res) => {
   app.put("/", async (req, res) => {
     await Contato.update(
       {
-        nome: req.body.nome,
-        telefone: req.body.telefone,
+        name: req.body.name,
+        phone: req.body.phone,
         email: req.body.email,
-        foto: req.body.foto,
+        photo: req.body.photo,
         tags: req.body.tags
       },{
         where: {

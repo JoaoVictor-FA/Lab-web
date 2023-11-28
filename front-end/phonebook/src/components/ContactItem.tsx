@@ -6,6 +6,7 @@ import Copy from "./Copy";
 import { useContext } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 import { Link } from "react-router-dom";
+import axios from "../axios";
 
 interface IContact {
     id: number;
@@ -18,8 +19,19 @@ interface IContact {
 interface ITag {
     name: string;
 }
+
+
 function ContactItem( props : {order: number, contact: IContact, show: boolean} ) {
     const {showOrder} = useContext(GlobalContext);
+
+    function deleteContact(id: number) {
+        axios.delete('', {
+            data : {
+                id: id,
+            }
+        })
+    }
+
     if(props.show) {
         return (
             <>
@@ -30,7 +42,7 @@ function ContactItem( props : {order: number, contact: IContact, show: boolean} 
                             <div>
                                 <p className={Style.name}>{props.contact.name}</p>
                                 <div className={Style.tags}>
-                                    {props.contact.tag.map((tag, index) => (
+                                    {props.contact.tag?.map((tag, index) => (
                                         <Tag key={index} name={tag.name} />
                                     ))}
                                 </div>
@@ -52,7 +64,9 @@ function ContactItem( props : {order: number, contact: IContact, show: boolean} 
                                 <img src={Edit} alt="" />
                             </Link>
                         </i>
-                        <i><img src={Trash} alt="" /></i>
+                        <i className={Style.delete} onClick={() => deleteContact(props.contact.id)}>
+                            <img src={Trash} alt="" />
+                        </i>
                     </div>
 
                 </li>
@@ -67,7 +81,7 @@ function ContactItem( props : {order: number, contact: IContact, show: boolean} 
                         <div className={Style.name_tag}>
                             <p onClick={() => showOrder(props.order)}>{props.contact.name}</p>
                             <div className={Style.tags}>
-                                {props.contact.tag.map((tag, index) => (
+                                {props.contact.tag?.map((tag, index) => (
                                     <Tag key={index} name={tag.name} />
                                 ))}
                             </div>

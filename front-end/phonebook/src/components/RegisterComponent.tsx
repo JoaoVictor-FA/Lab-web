@@ -5,6 +5,7 @@ import { SyntheticEvent, useState } from "react";
 import TagComponent from "./TagComponent";
 import { Link } from "react-router-dom";
 import Main from "./Main";
+import axios from "../axios";
 interface ITag {
   name: string;
   checked: boolean;
@@ -59,6 +60,17 @@ function RegisterComponent() {
       default:
         break;
     }
+
+    let sendTags : any[] = []
+    tags.forEach(e => {e.checked && sendTags.push(e.name)})
+
+    axios.post("", {
+      name: name,
+      phone: phone,
+      email: email,
+      photo: photo,
+      tags: sendTags,
+    })
 
     console.log("Submit");
   }

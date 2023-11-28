@@ -77,7 +77,12 @@ function App() {
 
   React.useEffect(() => {
     axios.get("").then((response) => {
-      console.log(response.data)
+      let newTags: any[] = []
+      response.data.forEach((e:any)=>{
+        e.tags.forEach((l:any)=>newTags.push({name:l}))
+        e.tags = newTags
+        newTags = []
+      })
       setContacts(response.data);
     });
   }, []);
