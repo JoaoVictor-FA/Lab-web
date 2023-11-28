@@ -3,18 +3,18 @@ const db = require('./connection')
 const Contato = db.sequelize.define(
     'contatos',
     {
-       nome: {
+       name: {
         allowNull: false,
         type: db.Sequelize.STRING
        },
-       telefone:{
+       phone:{
         allowNull: false,
         type: db.Sequelize.STRING
        },
        email:{
         type: db.Sequelize.STRING
        },
-       foto:{
+       photo:{
         type: db.Sequelize.STRING
        },
        tags: {
