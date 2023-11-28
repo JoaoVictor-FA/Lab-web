@@ -1,11 +1,13 @@
 const express = require("express")
 const app = express()
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 const Contato = require('./models/Contato')
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
+app.use(cors())
 
 app.get("/", async (req, res) => {
     const contatos = await Contato.findAll()

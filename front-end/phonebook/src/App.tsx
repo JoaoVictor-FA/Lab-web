@@ -9,6 +9,7 @@ import List from "./components/ContactList";
 import Style from "./App.module.css";
 import Main from "./components/Main";
 import Skeletons from "./components/Skeletons";
+import axios from "./axios";
 
 
 interface IContact {
@@ -73,6 +74,13 @@ function App() {
       }],
     },
   ]);
+
+  React.useEffect(() => {
+    axios.get("").then((response) => {
+      console.log(response.data)
+      setContacts(response.data);
+    });
+  }, []);
 
   // 
 
