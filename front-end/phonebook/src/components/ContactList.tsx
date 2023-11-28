@@ -9,7 +9,7 @@ interface IContact {
     phone: string;
     email: string;
     photo: string;
-    tag: ITag[];
+    tags: ITag[];
 }
   
 interface ITag {

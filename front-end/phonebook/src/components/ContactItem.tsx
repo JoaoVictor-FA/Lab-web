@@ -14,7 +14,7 @@ interface IContact {
     phone: string;
     email: string;
     photo: string;
-    tag: ITag[];
+    tags: ITag[];
 }
 interface ITag {
     name: string;
@@ -42,7 +42,7 @@ function ContactItem( props : {order: number, contact: IContact, show: boolean} 
                             <div>
                                 <p className={Style.name}>{props.contact.name}</p>
                                 <div className={Style.tags}>
-                                    {props.contact.tag?.map((tag, index) => (
+                                    {props.contact.tags?.map((tag, index) => (
                                         <Tag key={index} name={tag.name} />
                                     ))}
                                 </div>
@@ -81,7 +81,7 @@ function ContactItem( props : {order: number, contact: IContact, show: boolean} 
                         <div className={Style.name_tag}>
                             <p onClick={() => showOrder(props.order)}>{props.contact.name}</p>
                             <div className={Style.tags}>
-                                {props.contact.tag?.map((tag, index) => (
+                                {props.contact.tags?.map((tag, index) => (
                                     <Tag key={index} name={tag.name} />
                                 ))}
                             </div>
