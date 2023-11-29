@@ -59,21 +59,20 @@ function RegisterComponent() {
         alert("Preencha o e-mail");
         break;
       default:
-        break;
+        let sendTags : any[] = []
+        tags.forEach(e => {e.checked && sendTags.push(e.name)})
+
+        axios.post("", {
+          name: name,
+          phone: phone,
+          email: email,
+          photo: photo,
+          tags: sendTags,
+        })
+
+        navigate("../../")
     }
-
-    let sendTags : any[] = []
-    tags.forEach(e => {e.checked && sendTags.push(e.name)})
-
-    axios.post("", {
-      name: name,
-      phone: phone,
-      email: email,
-      photo: photo,
-      tags: sendTags,
-    })
-
-    navigate("../../")
+  
   }
 
   return (
