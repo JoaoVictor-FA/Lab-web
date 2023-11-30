@@ -1,21 +1,11 @@
 import { SyntheticEvent, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import DoubleArrow from "../assets/imagens/chevron-double-right.svg";
-import Trash from "../assets/imagens/trash.svg";
 import Style from "./style-components/EditComponent.module.css";
 import Main from "./Main";
 import TagComponent from "./TagComponent";
 import Loading from "./Loading";
 import axios from "../axios";
-
-interface IContact {
-  id: number;
-  name: string;
-  phone: string;
-  email: string;
-  photo: string;
-  tag: ITag[];
-}
 
 interface ITag {
   name: string;
@@ -64,56 +54,7 @@ function EditComponent() {
       checked: false,
     },
   ]);
-  const [contacts, setContacts] = useState<IContactData[]>([
-    {
-      id: 1,
-      name: "Anika Calzoni",
-      phone: "(11) 98765-4321",
-      email: "anika@me.com",
-      photo: "https://i.imgur.com/SMZTiqL.png",
-      tags: [
-        {
-          name: "Work",
-        },
-      ],
-    },
-    {
-      id: 2,
-      name: "James Carder",
-      phone: "(11) 98765-4322",
-      email: "james@me.com",
-      photo: "https://i.imgur.com/SMZTiqL.png",
-      tags: [],
-    },
-    {
-      id: 3,
-      name: "Desirae Baptista",
-      phone: "(11) 98765-4323",
-      email: "desirae@me.com",
-      photo:
-        "https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?auto=format&fit=crop&q=80&w=1480&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      tags: [
-        {
-          name: "Friend",
-        },
-        {
-          name: "Colleague",
-        },
-      ],
-    },
-    {
-      id: 4,
-      name: "Emerson Siphron",
-      phone: "(11) 98765-4324",
-      email: "emerson@me.com",
-      photo: "https://i.imgur.com/SMZTiqL.png",
-      tags: [
-        {
-          name: "Family",
-        },
-      ],
-    },
-  ]);
+  const [contacts, setContacts] = useState<IContactData[]>([]);
   const navigate = useNavigate()
 
   function changeEditTags(index: number) {
@@ -177,8 +118,9 @@ function EditComponent() {
       setContacts(response.data);
     });
   }, []);
-
+  
   useEffect(() => {
+    setIsLoading(true);
     const contact = contacts.find((contact) => contact.id === Number(id));
     if (contact) {
       setName(contact.name);
@@ -186,13 +128,7 @@ function EditComponent() {
       setEmail(contact.email);
       setPhoto(contact.photo);
       checkTags(contact);
-    }
-    const loading = setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
-  
-    return () => {
-      clearTimeout(loading);
     }
   }, [contacts]);
 

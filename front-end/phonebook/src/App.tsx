@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { useContext } from "react";
 import { GlobalContext } from "./context/GlobalContext";
-import AlphabetAZ from "./assets/imagens/sort-alpha-down.svg";
-import AlphabetZA from "./assets/imagens/sort-alpha-up.svg";
 import DoubleArrow from "./assets/imagens/chevron-double-right.svg";
 import List from "./components/ContactList";
 import Style from "./App.module.css";
@@ -27,55 +25,16 @@ interface ITag {
 
 function App() {
   
-  const { setOrder ,searchInput } = useContext(GlobalContext);
+  const { setOrder, searchInput} = useContext(GlobalContext);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [alphabet, setAlphabet] = useState<boolean>(true);
-  const [data, setData] = useState<IContact[]>([]);
-  const [contacts, setContacts] = useState<IContact[]>([
-    {
-    id: 1,
-    name: "Anika Calzoni",
-    phone: "(11) 98765-4321",
-    email: "anika@me.com",
-    photo: "https://i.imgur.com/SMZTiqL.png",
-    tags: [{
-            name: "Work",
-          },],
-    },
-    {
-      id: 2,
-      name: "James Carder",
-      phone: "(11) 98765-4322",
-      email: "james@me.com",
-      photo: "https://i.imgur.com/SMZTiqL.png",
-      tags: [],
-    },
-    {
-      id: 3,
-      name: "Desirae Baptista",
-      phone: "(11) 98765-4323",
-      email: "desirae@me.com",
-      photo: "https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?auto=format&fit=crop&q=80&w=1480&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      tags: [{
-        name: "Friend",
-      },
-      {
-        name: "Colleague",
-      }],
-    },
-    {
-      id: 4,
-      name: "Emerson Siphron",
-      phone: "(11) 98765-4324",
-      email: "emerson@me.com",
-      photo: "https://i.imgur.com/SMZTiqL.png",
-      tags: [{
-        name: "Family",
-      }],
-    },
-  ]);
+  const [contacts, setContacts] = useState<IContact[]>([]);
+
+  useEffect(() => {
+    setOrder(null);
+  }, [setOrder]);
 
   React.useEffect(() => {
+    setIsLoading(true);
     axios.get("").then((response) => {
       let newTags: any[] = []
       response.data.forEach((e:any)=>{
@@ -84,30 +43,15 @@ function App() {
         newTags = []
       })
       setContacts(response.data);
+      setIsLoading(false);
     });
   }, []);
 
   // 
 
   function searchList(searchInput: string) {
-    const filtered = data.filter(contact => contact.name.toLowerCase().includes(searchInput.toLowerCase()));
+    const filtered = contacts.filter(contact => contact.name.toLowerCase().includes(searchInput.toLowerCase()));
     return filtered;
-  }
-
-  useEffect(() => {
-    setOrder(null);
-    setData(contacts);
-    const loading = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => {
-      clearTimeout(loading);
-    }
-  }, [searchInput, alphabet, setOrder, contacts]);
-
-  function changeAlphabet() {
-    setAlphabet(!alphabet);
   }
 
   return (
@@ -115,13 +59,12 @@ function App() {
       <section className={Style.sectionList}>
         <div className={Style.path}>
           <p><i className={Style.double_arrow}><img src={DoubleArrow} alt="" /></i><a href="./">Lista de contatos</a> / All</p>
-          {/* <i onClick={changeAlphabet} className={Style.alphabet}><img src={alphabet ? AlphabetAZ : AlphabetZA} alt="" /></i> */}
         </div>
         <>
           {isLoading ? 
             <Skeletons/> 
             : 
-            <List contacts={searchInput === "" ? data : searchList(searchInput)} />
+            <List contacts={searchInput === "" ? contacts : searchList(searchInput)} />
           }
         </>
         
